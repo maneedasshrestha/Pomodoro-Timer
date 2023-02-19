@@ -1,0 +1,363 @@
+:root {
+    font-size: 62.5%;
+    /* 1rem = 10px */
+
+    --color-primary: black;
+    --color-secondary: #bedcfe;
+    --color-font: #bedcfe;
+
+    --color-shadow: #617781;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: var(--color-primary);
+    font-size: 1.6rem;
+    font-family: 'Open sans', sans-serif;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7));
+}
+
+.header {
+    min-height: 10vh;
+    width: 100%;
+    background-size: cover;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a h1 {
+    display: inline block;
+    padding: 8px 20px;
+    position: relative;
+}
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.nav-links ul li::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #bedcfe;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav-links ul li:hover::after {
+    width: 100%;
+}
+
+p,
+i,
+h1 {
+    color: var(--color-font);
+    cursor: pointer;
+}
+
+h1::after {
+    content: '';
+    width: 0%;
+    height: 5px;
+    background: #bedcfe;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+h1:hover::after {
+    width: 100%;
+}
+
+
+i {
+    font-size: 3.2rem;
+}
+
+h1 {
+    font-size: 3.2rem;
+}
+
+.container {
+    height: auto;
+    width: 100%;
+    position: auto;
+    top: 0;
+    padding-inline: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pannel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    width: 20rem;
+    margin-block: 1rem;
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px 10px var(--color-shadow);
+}
+
+.pannel p {
+    opacity: .7;
+    transition: 0.5s ease-in;
+}
+
+.pannel p.active {
+    opacity: 1;
+    color: var(--color-secondary);
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30rem;
+    height: 30rem;
+    border-radius: 10%;
+    box-shadow: 0px 0px 15px 10px var(--color-shadow);
+}
+
+.timerbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 26rem;
+    height: 26rem;
+    border-radius: 10%;
+    background-color: var(--color-secondary);
+    position: relative;
+}
+
+.timerbox::before {
+    content: '';
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    border-radius: 10%;
+    background-color: var(--color-primary);
+}
+
+.time {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.time p {
+    font-size: 7rem;
+    font-weight: bold;
+}
+
+.time p:nth-of-type(2) {
+    position: relative;
+    top: -.5rem;
+    margin-inline: 1rem;
+}
+
+.btn {
+    margin-top: 3rem;
+    border: 2px solid white;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    padding: 14px 28px;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.click {
+    border-color: #e7e7e7;
+    color: white;
+    transition-duration: 0.4s;
+}
+
+.click:hover {
+    transition-duration: 0.3s;
+    background: #e7e7e7;
+    color: black;
+}
+
+.controls #reset {
+    display: none;
+}
+
+h2{
+    color: #0e4bf1;
+}
+h2::after {
+    content: '';
+    width: 0%;
+    height: 5px;
+    background: #0e4bf1;
+    display: block;
+    margin: auto;
+    transition: 0.2s;
+}
+
+h2:hover::after {
+    width: 100%;
+}
+.todo {
+    position: relative;
+    max-width: 480px;
+    width: 100%;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 85px auto 0;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.todo .input-field {
+    position: relative;
+    height: 64px;
+    width: 100%;
+}
+
+.input-field textarea {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    padding: 18px 45px 18px 15px;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+.input-field textarea:focus {
+    border-color: #bedcfe;
+}
+
+textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.input-field .note-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 24px;
+    color: #707070;
+}
+
+.input-field textarea:focus~.note-icon {
+    color: #bedcfe;
+}
+
+.todo.todoLists {
+    max-height: 380px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.todoLists .list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    background-color: #f2f2f2;
+    padding: 20px 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.todoLists .list input {
+    height: 16px;
+    min-width: 16px;
+    accent-color: #bedcfe;
+    pointer-events: none;
+}
+
+.todoLists .list .task {
+    margin: 0 30px 0 15px;
+    word-break: break-all;
+}
+
+.list input:checked~.task {
+    text-decoration: line-through;
+}
+
+.todoLists .list i {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #707070;
+    padding: 5px;
+    opacity: 0.6;
+    display: none;
+}
+
+.todoLists .list:hover i {
+    display: inline-flex;
+}
+
+.todoLists .list i:hover {
+    opacity: 1;
+}
+
+.pending-tasks {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.pending-tasks span {
+    color: #333;
+}
+
+.pending-tasks .clear-button {
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    background: #4070f4;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.clear-button:hover {
+    background-color: #0e4bf1;
+}
