@@ -7,59 +7,58 @@ let breakTime = 5;
 
 let seconds = "00"
 
-// display
-window.onload = () => {
-    document.getElementById('minutes').innerHTML = workTime;
-    document.getElementById('seconds').innerHTML = seconds;
+window.onload = function(){
+  document.getElementById('minutes').innerHTML = workTime;
+  document.getElementById('seconds').innerHTML = seconds;
 
-    workTittle.classList.add('active');
+  workTittle.classList.add('active');
 }
 
 function startbreak() {
-    workTittle.classList.remove('active');
-    breakTittle.classList.add('active');
+  workTittle.classList.remove('active');
+  breakTittle.classList.add('active');
 }
 
 function start() {
-    document.getElementById('start').style.display = "none";
-    document.getElementById('reset').style.display = "block";
+  document.getElementById('start').style.display = "none";
+  document.getElementById('reset').style.display = "block";
 
-    seconds = 59;
+  seconds = 59;
 
-    let workMinutes = workTime - 1;
-    let breakMinutes = breakTime - 1;
+  let workMinutes = workTime - 1;
+  let breakMinutes = breakTime - 1;
 
-    breakCount = 0;
+  breakCount = 0;
 
-    let timerFunction = () => {
-        document.getElementById('minutes').innerHTML = workMinutes;
-        document.getElementById('seconds').innerHTML = seconds;
+  let timerFunction = function () {
+    document.getElementById('minutes').innerHTML = workMinutes;
+    document.getElementById('seconds').innerHTML = seconds;
 
-        seconds = seconds - 1;
+    seconds = seconds - 1;
 
-        if (seconds === 0) {
-            workMinutes = workMinutes - 1;
-            if (workMinutes === -1) {
-                if (breakCount % 2 === 0) {
+    if (seconds === 0) {
+      workMinutes = workMinutes - 1;
+      if (workMinutes === -1) {
+        if (breakCount % 2 === 0) {
 
-                    workMinutes = breakMinutes;
-                    breakCount++
+          workMinutes = breakMinutes;
+          breakCount++
 
-                    workTittle.classList.remove('active');
-                    breakTittle.classList.add('active');
-                } else {
+          workTittle.classList.remove('active');
+          breakTittle.classList.add('active');
+        } else {
 
-                    workMinutes = workTime;
-                    breakCount++
+          workMinutes = workTime;
+          breakCount++
 
-                    breakTittle.classList.remove('active');
-                    workTittle.classList.add('active');
-                }
-            }
-            seconds = 59;
+          breakTittle.classList.remove('active');
+          workTittle.classList.add('active');
         }
+      }
+      seconds = 59;
     }
-    setInterval(timerFunction, 1000);
+  }
+  setInterval(timerFunction, 1000);
 }
 
 const inputField = document.querySelector(".input-field textarea"),
@@ -111,7 +110,7 @@ function handleStatus(e) {
 
 //deleting task while we click on the delete icon.
 function deleteTask(e) {
-  e.parentElement.remove(); //getting parent element and remove it
+  e.parentElement.remove();
   allTasks();
 }
 
@@ -120,3 +119,4 @@ clearButton.addEventListener("click", () => {
   todoLists.innerHTML = "";
   allTasks();
 });
+
